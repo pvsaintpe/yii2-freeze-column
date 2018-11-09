@@ -1,0 +1,14 @@
+.freeze {
+    z-index: 1000;
+    background-color: #eeeeee;
+    position: sticky;
+}
+
+.free {
+    position: inherit;
+    left: auto;
+}
+
+.kv-grid-table {
+    position: relative;
+}
