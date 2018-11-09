@@ -7,8 +7,7 @@ use kartik\base\AssetBundle;
 /**
  * Class FreezeAsset
  * @package pvsaintpe\freeze
- *
- * @author Pavel Veselov [pvsaintpe@icloud.com)
+ * @author Pavel Veselov <pvsaintpe@icloud.com>
  */
 class FreezeAsset extends AssetBundle
 {
