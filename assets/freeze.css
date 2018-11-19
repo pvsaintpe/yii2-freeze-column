@@ -2,6 +2,7 @@
     z-index: 1000;
     background-color: #eeeeee;
     position: sticky;
+    position: -webkit-sticky;
 }
 
 .free {

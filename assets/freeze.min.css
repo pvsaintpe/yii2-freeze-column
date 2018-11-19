@@ -1,1 +1,1 @@
-.freeze{z-index:1000;background-color:#eee;position:sticky}.free{position:inherit;left:auto}.kv-grid-table{position:relative}
+.freeze{z-index:1000;background-color:#eee;position:sticky; position: -webkit-sticky;}.free{position:inherit;left:auto;}.kv-grid-table{position:relative;}
