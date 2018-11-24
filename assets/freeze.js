@@ -25,15 +25,7 @@
     /**
      * @type {{freezeLeftColumns: undefined, freezeRightColumns: undefined, container: undefined}}
      */
-    var defaults = {
-        freezeLeftColumns: [
-            'id'
-        ],
-        freezeRightColumns: [
-            'action'
-        ],
-        container: '#w0-container'
-    };
+    var defaults = {};
 
     /**
      * Настройки
