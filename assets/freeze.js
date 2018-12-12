@@ -22,6 +22,10 @@
         jQuery(settings.container).freezeGridView('init', settings);
     });
 
+    $(window).resize(function() {
+        jQuery(settings.container).freezeGridView('initRightColumnsFreeze', settings);
+    });
+
     /**
      * @type {{freezeLeftColumns: undefined, freezeRightColumns: undefined, container: undefined}}
      */
@@ -73,8 +77,9 @@
                 var $container = $(this);
                 settings = $.extend(true, options, defaults);
 
-                // Фиксируем стобцы справа
-                methods.initRightColumnsFreeze();
+                $(settings.container).ready(function() {
+                    jQuery(settings.container).freezeGridView('initRightColumnsFreeze', settings);
+                });
 
                 $.each(settings.freezeLeftColumns, function (index, value) {
                     var cell = $('thead > tr> th[data-col-seq="'+value+'"]');
@@ -171,7 +176,7 @@
                     $(obj).css('right', right + 'px');
                 });
 
-                right += parseInt($('td[data-col-seq="action"]:first').css('width'));
+                right += parseInt($('th[data-col-seq="' + value + '"]').css('width'));
             });
         }
     };
