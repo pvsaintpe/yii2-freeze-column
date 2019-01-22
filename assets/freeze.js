@@ -38,12 +38,6 @@
     var settings = {};
 
     /**
-     * Позиция Left левого-верхнего угла замороженного столбца относительно body
-     * @type {{}}
-     */
-    var freezeLeft = {};
-
-    /**
      * @type {{startScroll: string, endScroll: string}}
      */
     var gridEvents = {
@@ -79,12 +73,6 @@
 
                 $(settings.container).ready(function() {
                     jQuery(settings.container).freezeGridView('initRightColumnsFreeze', settings);
-                });
-
-                $.each(settings.freezeLeftColumns, function (index, value) {
-                    var cell = $('thead > tr> th[data-col-seq="'+value+'"]');
-
-                    freezeLeft[value] = Math.round(cell.offsetRelative('.kv-grid-table').left);
                 });
 
                 var filterEvents = 'scroll.freezeGridView';
@@ -150,6 +138,7 @@
             // считаем смещение скролбара
             var scrollLeft = Math.round(container.get(0).scrollLeft);
 
+            var left = 0;
             $.each(settings.freezeLeftColumns, function(index, value) {
                 $.each($('td[data-col-seq="'+ value +'"] ,th[data-col-seq="'+ value +'"]'), function (index, obj) {
                     $(obj).removeClass('freeze free');
@@ -158,9 +147,11 @@
                         $(obj).addClass('free');
                     } else {
                         $(obj).addClass('freeze');
-                        $(obj).css('left', Math.round(freezeLeft[value]) + 'px');
+                        $(obj).css('left', left);
                     }
                 });
+
+                left += parseInt($('th[data-col-seq="' + value + '"]').css('width'));
             });
         },
 
